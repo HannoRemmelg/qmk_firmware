@@ -1,0 +1,1 @@
+make fingerpunch/ximi:hanno FP_TRACKBALL_RIGHT_ONLY=yes ENCODER_ENABLE=yes AUDIO_ENABLE=no HAPTIC_ENABLE=no~
