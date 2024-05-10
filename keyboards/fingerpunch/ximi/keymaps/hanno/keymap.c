@@ -27,13 +27,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  *
- * ,-----------------------------------------.           ,-----------------------------------------.
- * |  Esc |   Q  |   W  |   E  |   R  |   T  |           |   Y  |   U  |   I  |   O  |   P  |   \  |
- * |------+------+------+------+------+------|           |------+------+------+------+------+------|
- * |  Tab |   A  |   S  |   D  |   F  |   G  |           |   H  |   J  |   K  |   L  |   ;  |   '  |
- * |------+------+------+------+------+------|           |------+------+------+------+------+------|
- * | Shft |   Z  |   X  |   C  |   V  |   B  |           |   N  |   M  |   ,  |   .  |   /  | Ctrl |
- * `-----------------------------------------'           `-----------------------------------------'
+ * ,------------------------------------------------.           ,-----------------------------------------.
+ * |  Esc |   Q  |      |   W  |   E  |   R  |   T  |           |   Y  |   U  |   I  |   O  |   P  |   \  |
+ * |-------------+------+------+------+------+------|           |------+------+------+------+------+------|
+ * |  Tab |   A  |      |   S  |   D  |   F  |   G  |           |   H  |   J  |   K  |   L  |   ;  |   '  |
+ * |-------------+------+------+------+------+------|           |------+------+------+------+------+------|
+ * | Shft |   Z  |      |   X  |   C  |   V  |   B  |           |   N  |   M  |   ,  |   .  |   /  | Ctrl |
+ * `------------------------------------------------'           `-----------------------------------------'
  *        ,------.         ,--------------------.    ,--------------------.          ,------.
  *        |COLEMK|         | LOWER| Enter|  Del |    |BckSpc| Space| RAISE|          | MUTE |
  *        `------'         `--------------------'    `--------------------.          `------'
@@ -43,11 +43,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  
 */
 [_QWERTY] = LAYOUT_ximi(
-  KC_ESC,       KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,         KC_Y,    KC_U,         KC_I,         KC_O,         KC_P,            KC_BSLS,
-  KC_TAB,       LCTL_T(KC_A), LGUI_T(KC_S), LALT_T(KC_D), LSFT_T(KC_F), KC_G,         KC_H,    RSFT_T(KC_J), RALT_T(KC_K), RGUI_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT,
-  KC_LSFT,      KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,         KC_N,    KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,         KC_RCTL,
-                TO(_COLEMAK),               LOWER,        KC_ENT,       KC_DEL,       KC_BSPC, KC_SPC,       RAISE,                      KC_MUTE,
-                                            KC_MS_BTN3,   KC_MS_BTN1,   KC_MS_BTN2,   KC_BRID, _______,      KC_BRIU
+  KC_1, KC_ESC,      KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,         KC_Y,    KC_U,         KC_I,         KC_O,         KC_P,          
+  KC_2, KC_TAB,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,         KC_H,    KC_J,         KC_K,         KC_L,         KC_SCLN, 
+  KC_3, KC_LSFT,       KC_Z,       KC_X,         KC_C,         KC_V,         KC_B,         KC_N,    KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,         
+              TO(_COLEMAK),               KC_LALT,      KC_SPC,       KC_4,         KC_BSPC, KC_SPC,       KC_SPC,                      KC_MUTE,
+                                          KC_MS_BTN3,   KC_MS_BTN1,   KC_MS_BTN2,   KC_BRID, _______,      KC_BRIU
 ),
 // Default config uses home row mods. So hold each of the keys on the home row to use ctrl, gui, alt, or shift
 
@@ -111,9 +111,9 @@ Colemak modified
  * ,-----------------------------------------.           ,-----------------------------------------.
  * |      |   1  |   2  |   3  |   4  |   5  |           |   6  |   7  |   8  |   9  |   0  | Page↑|
  * |------+------+------+------+------+------|           |------+------+------+------+------+------|
- * |AltTab|  Cut | Home |   ↑  | End  | Paste|           |   !  |   -  |   =  |   [  |   ]  | Page↓|
+ * |      |  Cut | Home |   ↑  | End  | Paste|           |   !  |   -  |   =  |   [  |   ]  | Page↓|
  * |------+------+------+------+------+------|           |------+------+------+------+------+------|
- * | ____ | Ctrl |   ←  |   ↓  |   →  |  Win |           |   *  |   +  |   /  |   (  |   )  |  Win |
+ * |  Alt | Ctrl |   ←  |   ↓  |   →  |  Win |           |   *  |   +  |   /  |   (  |   )  |  Win |
  * `-----------------------------------------'           `-----------------------------------------'
  *        ,------.         ,--------------------.    ,--------------------.          ,------.
  *        | MUTE |         | LOWER| Space| Shift|    |      |      | RAISE|          | MUTE |
@@ -124,8 +124,8 @@ Colemak modified
  */
 [_RAISE] = LAYOUT_ximi(
   _______,      KC_1,       KC_2,    KC_3,        KC_4,    KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PGUP,
-  LALT(KC_TAB), LCTL(KC_X), KC_HOME, KC_UP,       KC_END,  LCTL(KC_V),   KC_EXLM, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_PGDN,
-  _______,      KC_LCTL,    KC_LEFT, KC_DOWN,     KC_RGHT, KC_LGUI,      KC_ASTR, KC_PLUS, KC_SLSH, KC_LPRN, KC_RPRN, KC_LGUI,
+  _______,      LCTL(KC_X), KC_HOME, KC_UP,       KC_END,  LCTL(KC_V),   KC_EXLM, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_PGDN,
+  KC_LALT,      KC_LCTL,    KC_LEFT, KC_DOWN,     KC_RGHT, KC_LGUI,      KC_ASTR, KC_PLUS, KC_SLSH, KC_LPRN, KC_RPRN, KC_LGUI,
                 _______,             MO(_ADJUST), KC_SPC,  KC_LSFT,      _______, _______,  _______,          _______,
                                      _______, _______, _______,      KC_BRID, _______, KC_BRIU
 ),
@@ -135,7 +135,7 @@ Colemak modified
  * ,-----------------------------------------.           ,-----------------------------------------.
  * |      |   !  |   @  |   #  |   $  |   %  |           |MouseL|MouseR|   &  |   *  |   ^  |      |
  * |------+------+------+------+------+------|           |------+------+------+------+------+------|
- * |AltTab|  Esc | Copy |MouseR|MouseL|Paste |           |SCROLL|   _  |   +  |   {  |   }  | Right|
+ * |  Alt |  Esc | Copy |MouseR|MouseL|Paste |           |SCROLL|   _  |   +  |   {  |   }  | Right|
  * |------+------+------+------+------+------|           |------+------+------+------+------+------|
  * |      |  Caps|  Cut | ←Tab | Tab→ |EE_CLR|           |  @?  |  ←@  |  @→  |   |  |      |      | browser search, browser back/forward
  * `-----------------------------------------'           `-----------------------------------------'
@@ -148,7 +148,7 @@ Colemak modified
  */
 [_LOWER] = LAYOUT_ximi(
   _______,      KC_EXLM, KC_AT,     KC_HASH,            KC_DLR,  KC_PERC,      KC_BTN1,     KC_BTN2, KC_AMPR,     KC_ASTR, KC_CIRC, _______, 
-  LALT(KC_TAB), KC_ESC, LCTL(KC_C), KC_BTN2,            KC_BTN1, LCTL(KC_V),   DRAG_SCROLL, KC_UNDS, KC_PLUS,     KC_LCBR, KC_RCBR, KC_RGHT,
+  KC_LALT,      KC_ESC, LCTL(KC_C), KC_BTN2,            KC_BTN1, LCTL(KC_V),   DRAG_SCROLL, KC_UNDS, KC_PLUS,     KC_LCBR, KC_RCBR, KC_RGHT,
   _______,      KC_CAPS,LCTL(KC_X), LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), EE_CLR,  KC_WSCH,     KC_WBAK, KC_WFWD,     KC_PIPE, _______, _______,
                 _______,            _______,            _______, _______,      KC_DEL,      _______, MO(_ADJUST),          _______,
                                     _______,            _______, _______,      _______,     _______, _______
